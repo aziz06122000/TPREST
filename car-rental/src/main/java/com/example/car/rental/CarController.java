@@ -12,7 +12,6 @@ public class CarController {
         // Initialisation des voitures
         cars.add(new Car("11AA22", "Ferrari", 100, false));
         cars.add(new Car("33BB44", "Toyota", 50, false));
-        cars.add(new Car("55CC66", "Honda", 75, true));
     }
 
     // Liste des voitures non louées
