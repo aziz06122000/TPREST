@@ -1,17 +1,26 @@
 name: CI
+
 on:
-  - pull_request
+  pull_request:  # Modifiez ce déclencheur si nécessaire
+    branches:
+      - main  # Spécifiez les branches sur lesquelles vous voulez exécuter le workflow
+
 jobs:
   job1:
     runs-on: ubuntu-latest
-    name: build
+    name: Build
     steps:
       - uses: actions/checkout@v2
-      - name: mise a jour Set up JDK 17
+
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'adopt'
+
+      - name: Set executable permissions for gradlew
+        run: chmod +x car-rental/gradlew  # Ajoutez cette ligne
+
       - name: Build and test
         run: |
           export SHELL=/bin/bash 
